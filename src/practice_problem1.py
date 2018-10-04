@@ -171,7 +171,7 @@ class Box(object):
         else:
             self.contents = self.contents
             self.volume = self.volume
-            s = 
+            
 
     def double(self):
         """
