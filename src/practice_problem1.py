@@ -110,6 +110,8 @@ class Box(object):
             self.contents = ''
             self.volume = volume
 
+        self.original = self.contents
+
     def append_string(self, additional_contents):
         """
         What comes in:
@@ -351,10 +353,11 @@ class Box(object):
         #    TIME ESTIMATE:   5 minutes.
         # --------------------------------------------------------------
 
-        s = self.double()
         self.volume = new_volume
+        s = self.double()
+        a = self.append_string(self.contents)
 
-        return len(s)
+        return len(a) + len(s)
 
     def reset(self):
         """
