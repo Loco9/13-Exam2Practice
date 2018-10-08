@@ -30,9 +30,8 @@ import simple_testing as st
 
 def main():
     """ Calls the   TEST   functions in this module. """
-    run_test_practice_problem2a()
+    #run_test_practice_problem2a()
     run_test_practice_problem2b()
-
 
 # ----------------------------------------------------------------------
 # Students: Some of the testing code below uses SimpleTestCase objects,
@@ -210,14 +209,12 @@ def practice_problem2b(sequence):
     #    TIME ESTIMATE:   10 minutes.
     ####################################################################
 
-    seq = sequence
-    new = ''
+    string = ''
 
-    for k in range(len(seq)):
-        string = seq[k]
-        new = new + string[0]
-    return new
-
+    for k in range(len(sequence)):
+        a = sequence[k]
+        string = string + (a[0])
+    return string
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
