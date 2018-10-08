@@ -278,6 +278,25 @@ class Box(object):
         # and THEN translate the pseudo-code to a solution.
         # --------------------------------------------------------------
 
+        self.volume = new_volume
+        length = len(self.contents)
+
+        if len(self.contents) <= new_volume:
+            self.contents = self.contents
+            s = ''
+        else:
+            s = ''
+            a = self.contents
+            b = ''
+            count = 0
+            for k in range(new_volume):
+                self.contents = b + a[k]
+                count = count + 1
+
+            for k in range(count, length):
+                s = s + a[k]
+        return s
+
     def double_then_shrink(self, new_volume):
         """
         What comes in:
