@@ -40,9 +40,9 @@ def main():
     ####################################################################
 
 #    run_test_init()
-    run_test_append_string()
+#    run_test_append_string()
 #    run_test_double()
-#    run_test_shrink()
+    run_test_shrink()
 #    run_test_double_then_shrink()
 #    run_test_reset()
 #    run_test_steal()
@@ -142,7 +142,7 @@ class Box(object):
           :type additional_contents: str
         """
         # --------------------------------------------------------------
-        # TODO: 3. Implement and test this function.
+        # DONE: 3. Implement and test this function.
         #     See the testing code (below) for more examples.
         # --------------------------------------------------------------
         # --------------------------------------------------------------
@@ -165,13 +165,20 @@ class Box(object):
         # --------------------------------------------------------------
 
         if len(additional_contents) + len(self.contents) <= self.volume:
-            self.contents = additional_contents + self.contents
+            self.contents = self.contents + additional_contents
             self.volume = self.volume
             s = ''
         else:
             self.contents = self.contents
-            self.volume = self.volume
+            count = 0
+            for k in range(self.volume - len(self.contents)):
+                self.contents = self.contents + additional_contents[k]
+                count = count + 1
 
+            s = ''
+            for k in range(count, len(additional_contents)):
+                s = s + additional_contents[k]
+        return s
 
     def double(self):
         """
@@ -207,7 +214,7 @@ class Box(object):
           #                       contents that did NOT fit]
         """
         # --------------------------------------------------------------
-        # TODO: 4. Implement and test this function.
+        # DONE: 4. Implement and test this function.
         #     The testing code is already written for you (above).
         # --------------------------------------------------------------
         # --------------------------------------------------------------
@@ -219,6 +226,9 @@ class Box(object):
         # FOR FULL CREDIT, YOUR SOLUTION MUST BE NO MORE THAN
         #    ** TWO **   LINES OF CODE.
         ################################################################
+
+        s = self.append_string(self.contents)
+        return s
 
     def shrink(self, new_volume):
         """
