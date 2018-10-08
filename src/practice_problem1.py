@@ -42,8 +42,8 @@ def main():
 #    run_test_init()
 #    run_test_append_string()
 #    run_test_double()
-    run_test_shrink()
-#    run_test_double_then_shrink()
+#    run_test_shrink()
+    run_test_double_then_shrink()
 #    run_test_reset()
 #    run_test_steal()
 #    run_test_get_history()
@@ -266,7 +266,7 @@ class Box(object):
           :type new_volume: int
         """
         # --------------------------------------------------------------
-        # TODO: 5. Implement and test this function.
+        # DONE: 5. Implement and test this function.
         #     The testing code is already written for you (above).
         # --------------------------------------------------------------
         # --------------------------------------------------------------
@@ -291,6 +291,7 @@ class Box(object):
             count = 0
             for k in range(new_volume):
                 self.contents = b + a[k]
+                b = self.contents
                 count = count + 1
 
             for k in range(count, length):
@@ -349,6 +350,11 @@ class Box(object):
         #    DIFFICULTY:      5
         #    TIME ESTIMATE:   5 minutes.
         # --------------------------------------------------------------
+
+        s = self.double()
+        self.volume = new_volume
+
+        return len(s)
 
     def reset(self):
         """
